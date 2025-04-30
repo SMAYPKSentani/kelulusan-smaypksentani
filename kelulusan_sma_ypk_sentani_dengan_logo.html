@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pengumuman Kelulusan SMA YPK Sentani 2024/2025</title>
+  
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <header class="bg-blue-900 text-white text-center py-10 px-4 shadow-md">
+    <img src="logo_ypk.jpeg" alt="Logo Sekolah" class="mx-auto w-28 mb-4 rounded-full shadow-md"/>
+    <h1 class="text-3xl font-bold">Pengumuman Kelulusan</h1>
+    <h2 class="text-xl mt-2">SMA YPK Sentani</h2>
+    <p class="mt-4 max-w-2xl mx-auto">
+      Selamat kepada seluruh peserta didik yang telah menyelesaikan pendidikan di SMA YPK Sentani.
+      Semoga ilmu yang didapat menjadi bekal berharga untuk melanjutkan ke jenjang berikutnya.
+    </p>
+    <button onclick="showLogin()" class="mt-6 px-6 py-3 bg-yellow-400 text-blue-900 font-semibold rounded hover:bg-yellow-300 transition">
+      LOGIN
+    </button>
+  </header>
+
+  <section id="loginSection" class="hidden text-center py-12 px-4">
+    <h2 class="text-2xl font-semibold mb-4">Cek Kelulusan</h2>
+    <p class="mb-4">Masukkan NISN Anda:</p>
+    <input id="nisnInput" type="text" placeholder="Masukkan NISN"
+      class="border border-gray-300 rounded px-4 py-2 w-64 mb-4 text-center shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600" />
+    <br/>
+    <button onclick="checkGraduation()" class="px-6 py-2 bg-blue-700 text-white rounded hover:bg-blue-600 transition">
+      CEK
+    </button>
+    <div id="resultDisplay" class="mt-6 text-lg font-medium text-gray-700"></div>
+    <button onclick="backToHome()" class="mt-8 px-6 py-2 bg-gray-400 text-white rounded hover:bg-gray-500 transition">
+      Kembali
+    </button>
+  </section>
+
+  <script>
+    function showLogin() {
+      document.querySelector('header').classList.add('hidden');
+      document.getElementById('loginSection').classList.remove('hidden');
+    }
+
+    function backToHome() {
+      document.getElementById('loginSection').classList.add('hidden');
+      document.querySelector('header').classList.remove('hidden');
+      document.getElementById('resultDisplay').textContent = '';
+      document.getElementById('nisnInput').value = '';
+    }
+
+    function checkGraduation() {
+      const nisn = document.getElementById('nisnInput').value.trim();
+      const data = graduationData[nisn];
+      const resultDiv = document.getElementById('resultDisplay');
+      if (data) {
+        resultDiv.innerHTML = `Nama: <span class='font-bold'>${data.name}</span><br>Status Kelulusan: <span class='font-bold text-green-600'>${data.status}</span>`;
+      } else {
+        resultDiv.innerHTML = "<span class='text-red-600'>NISN tidak ditemukan. Harap periksa kembali.</span>";
+      }
+    }
+
+    const graduationData = {
+      "0062407541": { name: "Alberth Abraham Sokoy", status: "LULUS" },
+      "0066092418": { name: "Belandina Kaigere", status: "LULUS" },
+      "0079777078": { name: "Ceasy Yosua Ayomi", status: "LULUS" },
+      "0052337322": { name: "Chintia Ferawati Bano", status: "LULUS" },
+      "0064147608": { name: "Ferdinan Falen Fernandes Monim", status: "LULUS" },
+      "0055146459": { name: "Fitri Kogoya", status: "LULUS" },
+      "0076735800": { name: "Hans Ricard Waisamon", status: "LULUS" },
+      "0074218760": { name: "Iren Aprilia Suebu", status: "LULUS" },
+      "0073837016": { name: "James Robert Rate", status: "LULUS" },
+      "0069473788": { name: "Kevin Jordan Kespo Wasis", status: "LULUS" },
+      "3068957310": { name: "Konny Suebu", status: "LULUS" },
+      "0023389779": { name: "Kostan Wamili", status: "LULUS" },
+      "0062490828": { name: "Lewi Nerotumilena", status: "LULUS" },
+      "0069551618": { name: "Linet Keren Yoku", status: "LULUS" },
+      "0072230509": { name: "Martha Agustina Bano", status: "LULUS" },
+      "0071910968": { name: "Meylan Paskalin Waipon", status: "LULUS" },
+      "3081912662": { name: "Paschalis Renato Mangge", status: "LULUS" },
+      "0069117098": { name: "Ramayana Suebu", status: "LULUS" },
+      "0063685234": { name: "Rickson Ondikleuw", status: "LULUS" },
+      "0056804775": { name: "Rosalinda Ibo", status: "LULUS" },
+      "0065566656": { name: "Ruben Pallo", status: "LULUS" },
+      "0055856244": { name: "Saiful Fanurmadi", status: "LULUS" },
+      "0073087556": { name: "Valensia Renita Kopeuw", status: "LULUS" },
+      "0065551718": { name: "Yohanis Suebu", status: "LULUS" },
+      "0064422396": { name: "AN. Yohanis Yudistira Eduart Yoel", status: "LULUS" },
+      "0072445105": { name: "Charles Komba", status: "LULUS" },
+      "0079472182": { name: "Daniel Zakarias Tigori", status: "LULUS" },
+      "0049478604": { name: "Dody Yikwa", status: "LULUS" },
+      "0073088008": { name: "Dorina Enjel Yom", status: "LULUS" },
+      "0023589975": { name: "Dorsila Waring", status: "LULUS" },
+      "0076744737": { name: "Elsa Mika Yom", status: "LULUS" },
+      "0056011804": { name: "Ivan Yustus Napo", status: "LULUS" },
+      "0072474029": { name: "Juanda Gerald Meres", status: "LULUS" },
+      "0061751734": { name: "Karlos Herman Manarbeuw Rumbewas", status: "LULUS" },
+      "0054488353": { name: "Liana Yando", status: "LULUS" },
+      "0061853023": { name: "Lukas Arikelaus Suwae", status: "LULUS" },
+      "0079104572": { name: "Marlia Enok", status: "LULUS" },
+      "0084396733": { name: "Marselino Felle", status: "LULUS" },
+      "0043307042": { name: "Marthince Matelda Wally", status: "LULUS" },
+      "0064302320": { name: "Mary Tirza Natalia Tokoro", status: "LULUS" },
+      "0074840419": { name: "Melan Ester Buara", status: "LULUS" },
+      "0075013488": { name: "Merchi Yonice Yom", status: "LULUS" },
+      "0063017884": { name: "Michael Gibran Monim", status: "LULUS" },
+      "0067063906": { name: "Nicholas Monim", status: "LULUS" },
+      "0048852473": { name: "Rahel Aryati Abidondifu", status: "LULUS" },
+      "0065153908": { name: "Rosmina Bastiana Reflince Nassa", status: "LULUS" },
+      "0065314667": { name: "Sarah Wally", status: "LULUS" },
+      "0064370021": { name: "Yakomina Suebu", status: "LULUS" },
+      "0047820780": { name: "Yoel Alfred Nerotumilena", status: "LULUS" },
+      "0052483378": { name: "Yohanis Wenda", status: "LULUS" },
+      "0066672426": { name: "Yuliana Ibo", status: "LULUS" },
+      "0069907846": { name: "Adventus Natalino Meki Yom", status: "LULUS" },
+      "0049271446": { name: "Afandi Pagawak", status: "LULUS" },
+      "0069794293": { name: "Agustinus H. Hubusa", status: "LULUS" },
+      "0055592652": { name: "Alberth Rayli Ibo", status: "LULUS" },
+      "0055058352": { name: "Arius William Kabey", status: "LULUS" },
+      "0074133895": { name: "Belandina Kiambe", status: "LULUS" },
+      "0053945448": { name: "Carly Kabey", status: "LULUS" },
+      "0075574583": { name: "Chelsea Josefine Wally", status: "LULUS" },
+      "3067957390": { name: "Clarita M. Wakerkwa", status: "LULUS" },
+      "0058517128": { name: "Daniel Meifen Mariai", status: "LULUS" },
+      "0056883562": { name: "Daud Rivan Pallo", status: "LULUS" },
+      "0049207758": { name: "David Maikel Jems Welang", status: "LULUS" },
+      "0071452607": { name: "Dina Monim", status: "LULUS" },
+      "0068810330": { name: "Elisa Januard Enok", status: "LULUS" },
+      "0053369033": { name: "Emison Yando", status: "LULUS" },
+      "0064323840": { name: "Fadli Melangsena", status: "LULUS" },
+      "0061048718": { name: "Falmer Wesapla", status: "LULUS" },
+      "0065369258": { name: "Firman Indriyanto", status: "LULUS" },
+      "0076141461": { name: "Glen Adriano Mokay", status: "LULUS" },
+      "0073502960": { name: "Grendhies Almenggo Sokoy", status: "LULUS" },
+      "3061436674": { name: "Hermince Dike", status: "LULUS" },
+      "0071357606": { name: "Ice Meku", status: "LULUS" },
+      "0073283543": { name: "Iryanti Felle", status: "LULUS" },
+      "0066319487": { name: "Johosua Jems Makuba", status: "LULUS" },
+      "0068350988": { name: "Maikel Enok", status: "LULUS" },
+      "0062062323": { name: "Nikke M. Yom", status: "LULUS" },
+      "0057673006": { name: "Noel Ari Cristian Wally", status: "LULUS" },
+      "0086560319": { name: "Roland Oryentes Sokoi", status: "LULUS" },
+      "3064190309": { name: "Yosef Sakius Sasbe", status: "LULUS" },
+      "0063066718": { name: "Alberd Reynald Willem", status: "LULUS" },
+      "0066628754": { name: "Alberth Devan Imanuel Maloali", status: "LULUS" },
+      "0062101680": { name: "Beltzasar Henry Erari", status: "LULUS" },
+      "0079460011": { name: "Brian Dean Suebu", status: "LULUS" },
+      "0063565978": { name: "David Karolus Krewai", status: "LULUS" },
+      "0064796771": { name: "Derek Kaleb Otniel Tokoro", status: "LULUS" },
+      "0075541334": { name: "Efran Wenda", status: "LULUS" },
+      "0072650464": { name: "Enricho Javier England Razcho Tamboto", status: "LULUS" },
+      "0055207462": { name: "Henok Toto", status: "LULUS" },
+      "0079604225": { name: "Kristian Daniel Suebu", status: "LULUS" },
+      "0076326535": { name: "Mario Marweri", status: "LULUS" },
+      "0073083680": { name: "Mariska Fitri Kartince Wally", status: "LULUS" },
+      "0068303522": { name: "Mercy Frauwen Cantika Satia", status: "LULUS" },
+      "0076601241": { name: "Paska Gloria Yalok", status: "LULUS" },
+      "3054459178": { name: "Pasti Kogoya", status: "LULUS" },
+      "0062189950": { name: "Renaldi Gabriel Yoku", status: "LULUS" },
+      "3066280066": { name: "Ronny Yesaya Ansaka", status: "LULUS" },
+      "0058276764": { name: "Samuel Herik Omba", status: "LULUS" },
+      "0067216082": { name: "Septinus Waring", status: "LULUS" },
+      "0066167398": { name: "Solideo Adolof Ferdinandus", status: "LULUS" },
+      "3079716929": { name: "Susana Kiambe", status: "LULUS" },
+      "0059467613": { name: "Tominus Kulka", status: "LULUS" },
+      "3051905060": { name: "Tori Siri", status: "LULUS" },
+      "0064125773": { name: "Yampi Meyoku", status: "LULUS" },
+      "3064453738": { name: "Yampiter Dimara", status: "LULUS" },
+      "0062223430": { name: "Yohanis Wally", status: "LULUS" },
+      "0067756628": { name: "Yulianti Sarina Norackh Kogoya", status: "LULUS" }
+    };
+  </script>
+</body>
+</html>
